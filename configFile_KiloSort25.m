@@ -1,21 +1,8 @@
-function ops = Kilosort2Configuration(XMLfile)
-
-% Loads xml parameters (Neuroscope)
-xml = LoadXml(XMLfile);
-% Define rootpath
-rootpath = fileparts(XMLfile);
-
-% binary file
-ops.fbinary             = [XMLfile(1:end-3) 'dat']; % will be created for 'openEphys'
-
 % sample rate
-ops.fs                  = xml.SampleRate;        % sampling rate
+ops.fs = 20000;  
 
 % frequency for high pass filtering (150)
-ops.fshigh = 150;   
-
-% minimum firing rate on a "good" channel (0 to skip)
-ops.minfr_goodchannels = 0; 
+ops.fshigh = 300;   
 
 % threshold on projections (like in Kilosort1, can be different for last pass like [10 4])
 ops.Th = [10 4];  
@@ -27,7 +14,7 @@ ops.lam = 10;
 ops.AUCsplit = 0.9; 
 
 % minimum spike rate (Hz), if a cluster falls below this for too long it gets removed
-ops.minFR = 1/25; 
+ops.minFR = 1/50; 
 
 % number of samples to average over (annealed from first to second value) 
 ops.momentum = [20 400]; 
@@ -37,6 +24,13 @@ ops.sigmaMask = 30;
 
 % threshold crossings for pre-clustering (in PCA projection space)
 ops.ThPre = 8; 
+
+% spatial scale for datashift kernel
+ops.sig = 20;
+
+% type of data shifting (0 = none, 1 = rigid, 2 = nonrigid)
+ops.nblocks = 0;
+
 
 %% danger, changing these settings can lead to fatal errors
 % options for determining PCs

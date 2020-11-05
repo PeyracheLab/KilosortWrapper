@@ -29,7 +29,7 @@ kcoords = rez.ops.kcoords;
 basename = rez.ops.basename;
 
 Nchan = rez.ops.Nchan;
-nSamples = 40;%rez.ops.nt0;
+nSamples = 32;%rez.ops.nt0;
 
 %templates = gpuArray(zeros(Nchan, size(rez.W,1), rez.ops.Nfilt, 'single'));
 templates = gpuArray(zeros(Nchan, size(rez.W,1), size(rez.U,2), 'single'));

@@ -1,4 +1,4 @@
-function ops = Kilosort2Configuration(XMLfile)
+function ops = Kilosort25Configuration(XMLfile)
 
 % Loads xml parameters (Neuroscope)
 xml = LoadXml(XMLfile);
@@ -37,6 +37,9 @@ ops.sigmaMask = 30;
 
 % threshold crossings for pre-clustering (in PCA projection space)
 ops.ThPre = 8; 
+
+% type of data shifting (0 = none, 1 = rigid, 2 = nonrigid)
+ops.nblocks = 0;
 
 %% danger, changing these settings can lead to fatal errors
 % options for determining PCs
