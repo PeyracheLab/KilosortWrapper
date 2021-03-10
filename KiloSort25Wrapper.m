@@ -104,7 +104,7 @@ rez = learnAndSolve8b(rez, iseed);
 
 % OPTIONAL: remove double-counted spikes - solves issue in which individual spikes are assigned to multiple templates.
 % See issue 29: https://github.com/MouseLand/Kilosort/issues/29
-rez = remove_ks2_duplicate_spikes(rez);
+%rez = remove_ks2_duplicate_spikes(rez);
 
 % final merges
 rez = find_merges(rez, 1);
@@ -158,7 +158,7 @@ save(fname, 'rez', '-v7.3');
 %% export Neurosuite files
 % if ops.export.neurosuite
     disp('Converting to Klusters format')
-%    load('rez.mat')
+%    load('rez2.mat')
     
     %rez.ops.fbinary = fullfile(pwd, [basename,'.dat']);
     Kilosort2Neurosuite(rez)
